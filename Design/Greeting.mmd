@@ -1,0 +1,9 @@
+sequenceDiagram
+    actor User
+    participant CS as Catalog Service
+
+
+    User ->> CS : HTTP GET /
+    CS ->> User: Response
+
+    note left of CS: Response Body (String) <br> Welcome to the book catalog
