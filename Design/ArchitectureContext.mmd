@@ -1,0 +1,17 @@
+flowchart LR
+    User["User
+        [Person]
+
+        User who will use polar bookshop app"]
+
+
+    subgraph Container
+        Catalog["Catalog
+                [Container: Spring Boot]
+
+                Catalog service that will greet the user
+                and provide book catalog"]
+    end
+
+    User --"Calls
+            [Http/REST]"--> Catalog
