@@ -13,6 +13,39 @@ info:
   title: Book Catalog API
   version: v0.0.1
 paths:
+  /books/{isbn}:
+    parameters:
+      - name: isbn
+        in: path
+        required: true
+        schema:
+          type: string
+    delete:
+      responses:
+        204:
+          description: successfully deleted the book
+      description: delete a book identified by its isbn
+    put:
+      description: update a book
+      responses:
+        200:
+          description: book updated successfully
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: "#/components/schemas/book"
+    get:
+      description: retrieve a book using its isbn number
+      responses:
+        404:
+          description: no book available with the provided isbn
+        200:
+          description: response containing the found book
+          content:
+            'application/json':
+              schema:
+                $ref: "#/components/schemas/book"
   /books:
     post:
       description: add a book to the catalog
