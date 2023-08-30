@@ -1,0 +1,16 @@
+C4Context
+
+    Person(Customer, "Customer", "Customer who browses the books catalog")
+    Person(Admin,"Admin","Admin user who manages,<br> adds and updates books on the catalog")
+
+    System_Boundary(Catalog,"Catalog System") {
+        System(CatalogAPI,"Catalog API","Provide REST interface for accessing books catalog")
+    }
+
+    System_Ext(Identity,"Identity","Provide login and identity functionality")
+
+    Rel(Customer,CatalogAPI,"Uses","HTTPs")
+    Rel(Admin,CatalogAPI,"Manage Catalog","HTTPs")
+    Rel(CatalogAPI,Identity,"Validates User Tokens","HTTPS")
+
+
