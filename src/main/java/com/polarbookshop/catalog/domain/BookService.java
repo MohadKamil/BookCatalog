@@ -29,7 +29,7 @@ public class BookService {
 
     public Book addBook(Book book) {
         if(booksRepository.isbnExists(book.isbn())) {
-            throw new BookExistsException();
+            throw new BookExistsException(book.isbn());
         }
 
         return saveBook(book);
