@@ -1,0 +1,22 @@
+C4Container
+    Person(Customer,"Customer","A Customer of hte polar bookshop application")
+    Person(Employee,"Employee","An Employee of the polar bookshop application")
+
+    Container_Boundary(PolarSystem,"Polar System") {
+        Container(Gateway,"API Gateway","aws: API Gateway","Provides API gateway-ing functionality,<br> and cross cutting concerns (Logging, Authorization)")
+
+        ContainerDb(SessionDb,"Session Db","Container: Redis","Store web sessions, and cache data")
+
+        Rel(Gateway,SessionDb,"Read/Write","RESP")
+
+        Container(OrderSvc,"Order Service","Container: Spring Boot", "Provide functionality for customer to purchase books")
+
+        Container(CatalogSvc,"Catalog Service","Container: Spring Boot", "List and display available books")
+
+        Rel(Gateway,OrderSvc,"Forward API Calls","REST/HTTP")
+        Rel(Gateway,CatalogSvc,"Forward API Calls","REST/HTTP")
+    }
+
+    Rel(Customer,Gateway,"Uses","HTTPS")
+    Rel(Employee,Gateway,"Uses","HTTPS")
+
