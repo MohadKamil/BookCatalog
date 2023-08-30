@@ -1,0 +1,39 @@
+openapi: 3.0.1
+components:
+  schemas:
+    book:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+          readOnly: true
+info:
+  description: API for books catalog
+  title: Book Catalog API
+  version: v0.0.1
+paths:
+  /books:
+    post:
+      description: add a book to the catalog
+      responses:
+        201:
+          description: created the new book successfully
+        422:
+          description: a book with the same ISBN already exists
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: "#/components/schemas/book"
+    get:
+      description: Get all the books in the catalog
+      responses:
+        200:
+          description: return list of available books
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/book"
