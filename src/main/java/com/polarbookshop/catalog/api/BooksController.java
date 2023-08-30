@@ -2,9 +2,7 @@ package com.polarbookshop.catalog.api;
 
 import com.polarbookshop.catalog.domain.Book;
 import com.polarbookshop.catalog.domain.BookService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/books")
@@ -19,5 +17,11 @@ public class BooksController {
     @GetMapping
     public Iterable<Book> getBooks() {
         return bookService.getBooks();
+    }
+
+
+    @PostMapping
+    public Book createBook(@RequestBody Book book) {
+        return bookService.addBook(book);
     }
 }
