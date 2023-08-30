@@ -1,10 +1,12 @@
 package com.polarbookshop.catalog.domain;
 
 import com.polarbookshop.catalog.domain.exceptions.BookExistsException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class BookService {
 
     private final BooksRepository booksRepository;
