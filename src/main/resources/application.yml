@@ -1,3 +1,5 @@
+polar:
+  greeting: Welcome to polar bookshop
 server:
   port: 9001
   tomcat:
