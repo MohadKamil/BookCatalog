@@ -1,16 +1,15 @@
 package com.polarbookshop.catalog.domain;
 
-import jakarta.validation.Path;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 public class BookValidationTests {
 
-    private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+    private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     @Test
     public void whenAllFieldsSet_ValidationShouldSucceed() {
