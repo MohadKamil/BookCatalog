@@ -1,0 +1,1 @@
+JsonContent {"isbn":"1","title":"Thinking,Fast and Slow","author":"Daniel Kahneman","price":40.0} created from com.polarbookshop.catalog.domain.Book
