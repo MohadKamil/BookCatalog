@@ -5,12 +5,33 @@ flowchart LR
         User who will use polar bookshop app"]
 
 
-    subgraph Container
+    subgraph "Catalog Service"
+        direction TB
         Catalog["Catalog
                 [Container: Spring Boot]
 
                 Catalog service that will greet the user
                 and provide book catalog"]
+
+        Config["Config Service
+                [Container: Spring Cloud Config]
+
+                Spring Config server providing
+                centralized configuration
+        "]
+
+        ConfigGit[("Config Repo
+                    [Container: Git repo]
+
+                    Git repo hosting the
+                    configuration values
+        ")]
+
+        Config --"Retrieves Config
+                  [HTTP/Git Sync]"-->ConfigGit
+
+        Catalog --"Retrieves Configurations
+                    [HTTP/REST]"-->Config
     end
 
     User --"Calls
