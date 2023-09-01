@@ -8,3 +8,11 @@ server:
     threads:
       max: 50
       min-spare: 5
+spring:
+  application:
+    name: Catalog
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
