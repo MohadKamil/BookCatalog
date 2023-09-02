@@ -1,16 +1,12 @@
 package com.polarbookshop.catalog.domain;
 
-import java.util.List;
+import org.springframework.data.repository.ListCrudRepository;
+
 import java.util.Optional;
 
-public interface BooksRepository {
-    List<Book> getBooks();
+public interface BooksRepository extends ListCrudRepository<Book,Long> {
 
-    Optional<Book> getBook(String isbn);
-
-    void deleteBook(String isbn);
-
-    Book saveBook(Book book);
-
-    boolean isbnExists(String isbn);
+    Optional<Book> findByIsbn(String isbn);
+    boolean existsByIsbn(String isbn);
+    void deleteByIsbn(String isbn);
 }

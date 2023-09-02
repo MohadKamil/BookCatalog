@@ -26,6 +26,6 @@ public class BooksTestData {
                 Book.of("2","Learning Domain Driven Design","Vlad Khononov",100)
         );
 
-        books.forEach(repository::saveBook);
+        repository.saveAll(books);
     }
 }
