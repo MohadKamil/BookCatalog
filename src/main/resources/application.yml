@@ -1,3 +1,4 @@
+
 polar:
   greeting: Welcome to polar bookshop
 server:
@@ -29,6 +30,9 @@ spring:
         multiplier: 1.1
         initial-interval: 1000
         max-interval: 2000
+  sql:
+    init:
+      mode: always
 management:
   endpoints:
     web:
