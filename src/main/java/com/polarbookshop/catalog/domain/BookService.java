@@ -35,6 +35,7 @@ public class BookService {
         return saveBook(book);
     }
 
+    //Since Id and version are server side maintained, they shouldn't be declared in the API contract
     public Book editBook(String isbn, Book book) {
         var optionalBook = booksRepository.getBook(isbn);
 
@@ -44,8 +45,7 @@ public class BookService {
         else {
             var currentBook = optionalBook.get();
 
-            var updatedBook = Book.of(currentBook.isbn(),
-                    book.title(), book.author(), book.price());
+            var updatedBook = new Book(currentBook.id(),book.isbn(),book.title(),book.author(),book.price(),currentBook.version());
 
             return saveBook(updatedBook);
         }
