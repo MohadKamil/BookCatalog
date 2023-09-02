@@ -23,7 +23,7 @@ public record Book(
         @CreatedDate
         Instant createdDate,
         @LastModifiedDate
-        Instant lastModifiedData,
+        Instant lastModifiedDate,
         @Version
         int version) {
 

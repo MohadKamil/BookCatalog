@@ -51,7 +51,7 @@ public class BookService {
                     book.author(),
                     book.price(),
                     currentBook.createdDate(),
-                    currentBook.lastModifiedData(),
+                    currentBook.lastModifiedDate(),
                     currentBook.version());
 
             return saveBook(updatedBook);
