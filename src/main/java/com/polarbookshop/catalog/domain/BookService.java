@@ -45,7 +45,14 @@ public class BookService {
         else {
             var currentBook = optionalBook.get();
 
-            var updatedBook = new Book(currentBook.id(),book.isbn(),book.title(),book.author(),book.price(),currentBook.version());
+            var updatedBook = new Book(currentBook.id(),
+                    book.isbn(),
+                    book.title(),
+                    book.author(),
+                    book.price(),
+                    currentBook.createdDate(),
+                    currentBook.lastModifiedData(),
+                    currentBook.version());
 
             return saveBook(updatedBook);
         }
