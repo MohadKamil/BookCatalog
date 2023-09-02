@@ -9,6 +9,11 @@ server:
       max: 50
       min-spare: 5
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/polar_catalog_db?user=user&password=Password
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 10
   application:
     name: Catalog
   config:
