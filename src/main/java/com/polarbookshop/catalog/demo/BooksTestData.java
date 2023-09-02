@@ -22,8 +22,8 @@ public class BooksTestData {
     @EventListener(ApplicationReadyEvent.class)
     public void seedBooks() {
         var books = List.of(
-                new Book("1","Thinking, Fast and Slow","Daniel Kahneman",44),
-                new Book("2","Learning Domain Driven Design","Vlad Khononov",100)
+                Book.of("1","Thinking, Fast and Slow","Daniel Kahneman",44),
+                Book.of("2","Learning Domain Driven Design","Vlad Khononov",100)
         );
 
         books.forEach(repository::saveBook);

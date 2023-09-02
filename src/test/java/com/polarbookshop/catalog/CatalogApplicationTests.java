@@ -16,7 +16,7 @@ class CatalogApplicationTests {
 
     @Test
     public void whenBooksPostIsCalled_SentBookShouldBeSaved() {
-        var book = new Book("1","Thinking, Fast and Slow","Daniel Kahneman",40);
+        var book = Book.of("1","Thinking, Fast and Slow","Daniel Kahneman",40);
 
         var response = webTestClient
                 .post()

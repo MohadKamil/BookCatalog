@@ -15,7 +15,7 @@ public class BooksJsonTests {
 
     @Test
     public void testBookSerialization() throws Exception {
-        var book = new Book("1","Thinking,Fast and Slow","Daniel Kahneman",40);
+        var book = Book.of("1","Thinking,Fast and Slow","Daniel Kahneman",40);
         var json = jacksonTester.write(book);
 
         Approvals.verify(json);

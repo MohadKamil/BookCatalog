@@ -13,7 +13,7 @@ public class BookValidationTests {
 
     @Test
     public void whenAllFieldsSet_ValidationShouldSucceed() {
-        var book = new Book("1","Thinking, Fast and Slow","Daniel Kahneman", 40);
+        var book = Book.of("1","Thinking, Fast and Slow","Daniel Kahneman", 40);
 
         var validationResult = validator.validate(book);
 
@@ -22,7 +22,7 @@ public class BookValidationTests {
 
     @Test
     public void whenTitleIsEmpty_ValidationShouldFail() {
-        var book = new Book("1","","Daniel Kahneman",40);
+        var book = Book.of("1","","Daniel Kahneman",40);
 
         var validationResult = validator.validate(book);
 
