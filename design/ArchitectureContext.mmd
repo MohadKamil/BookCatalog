@@ -1,4 +1,4 @@
-flowchart LR
+flowchart TB
     User["User
         [Person]
 
@@ -6,8 +6,7 @@ flowchart LR
 
 
     subgraph "Catalog Service"
-        direction TB
-        Catalog["Catalog
+        Catalog["Catalog API
                 [Container: Spring Boot]
 
                 Catalog service that will greet the user
@@ -30,8 +29,16 @@ flowchart LR
         Config --"Retrieves Config
                   [HTTP/Git Sync]"-->ConfigGit
 
+        CatalogDB[("CatalogDb
+                    [Container: Postgresql]
+
+                    Postgresql DB storing \
+                    book catalog data")]
+
         Catalog --"Retrieves Configurations
                     [HTTP/REST]"-->Config
+
+        Catalog --"Read/Write Catalog data"-->CatalogDB
     end
 
     User --"Calls
