@@ -49,6 +49,9 @@ dependencies {
     testImplementation 'com.approvaltests:approvaltests:18.7.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
     testImplementation 'org.testcontainers:postgresql'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 }
