@@ -34,4 +34,10 @@ public class BooksController {
         var optionalBook = bookService.getBook(isbn);
         return ResponseEntity.of(optionalBook);
     }
+
+    @DeleteMapping("{isbn}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBook(@PathVariable String isbn) {
+        bookService.deleteBook(isbn);
+    }
 }
