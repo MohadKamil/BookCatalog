@@ -21,6 +21,7 @@ public class BooksTestData {
 
     @EventListener(ApplicationReadyEvent.class)
     public void seedBooks() {
+        repository.deleteAll();
         var books = List.of(
                 Book.of("1","Thinking, Fast and Slow","Daniel Kahneman",44),
                 Book.of("2","Learning Domain Driven Design","Vlad Khononov",100)
