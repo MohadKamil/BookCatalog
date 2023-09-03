@@ -37,3 +37,9 @@ OCI compliant image can be build using Cloud native build pack project
 ```bash
 pack build catalog:pack1.0.0 --builder paketobuildpacks/builder-jammy-tiny
 ```
+
+#### Spring Native Packing
+
+Spring Boot comes with native integration to create docker image, 
+utilizing cloud native build packs, but without the need to 
+download and install any dependencies, check [Spring docs](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image)
