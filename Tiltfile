@@ -2,17 +2,20 @@
 
 gradlew = './gradlew'
 if os.name == 'nt':
-  gradlew = 'gradlew.bat'
+  gradlew = 'gradlew'
+
+imageNameEnv = '$EXPECTED_REF'
+if os.name == 'nt':
+  imageNameEnv = '%EXPECTED_REF%'
 
 # Build
 custom_build(
     # Name of the container image
     ref = 'catalog',
     # Command to build the container image
-    command = gradlew + ' bootBuildImage --imageName catalog:pack1.1.0',
+    command = gradlew + ' bootBuildImage --imageName ' + imageNameEnv,
     # Files to watch that trigger a new build
     deps = ['build.gradle', 'src'],
-    tag = 'pack1.1.0'
 )
 
 # Deploy
