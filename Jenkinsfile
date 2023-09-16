@@ -4,7 +4,9 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh './gradlew build'
+        sh '''echo "running gradle build"
+chmod +x ./gradlew 
+./gradlew build'''
       }
     }
 
