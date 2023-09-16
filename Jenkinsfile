@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh '''echo "running gradle build"
 chmod +x ./gradlew 
-./gradlew build'''
+./gradlew compile'''
       }
     }
 
